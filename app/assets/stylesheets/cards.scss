@@ -1,0 +1,27 @@
+// Place all the styles related to the Cards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+form.new-card-item{
+  border-radius: 10px;
+  border: 1px solid white;
+  width:140px;
+  margin:0 auto;
+  padding-bottom: 10px;
+}
+
+.button-delete{
+  display: none;
+}
+
+
+.card-item:hover .button-delete {
+  display: inline-block;
+}
+
+.cards {
+  min-height: 10px;
+}
+
+.submit-card{
+  margin-top: 10px;
+}

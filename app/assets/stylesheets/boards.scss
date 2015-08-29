@@ -1,0 +1,72 @@
+// Place all the styles related to the boards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul.lists:after{
+  clear:both;
+  display:block;
+  content: "";
+}
+
+.board-item {
+  margin-left: 23px;
+  font-size: 35px;
+  text-transform: capitalize;
+  text-shadow: 1px 1px #000;
+  float: left;
+}
+.board-stuff:after {
+  clear: both;
+  display: block;
+  content: "";
+}
+
+.new_board {
+  width: 155px;
+  text-align: center;
+  border: 1px outset white;
+  margin-top: 20px;
+  float: left;
+  margin-left: 30px;
+}
+.new_board button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.new_board h1{
+  font-size: 20px;
+}
+
+.trello {
+  font-size: 65px;
+  text-shadow: 1px 1px #000;
+}
+
+.trello_header {
+  float:left;
+}
+
+.trello_console:after {
+  clear:both;
+  content: "";
+  display: block;
+}
+
+.board-object {
+  margin-right: 20px;
+  float: left;
+  width: 88px;
+  height: 50px;
+  border: 1px outset white;
+  text-align: center;
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 50px;
+}
+
+
+.inner{
+  margin-left: 20px;
+}
