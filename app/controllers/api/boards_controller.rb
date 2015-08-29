@@ -8,7 +8,6 @@ class Api::BoardsController < ApplicationController
 
     @board = Board.includes(:lists, :cards).find(params[:id]);
     @lists = @board.lists.order(:ord)
-
     @cards = @board.cards.order(:ord)
     render "show"
   end
