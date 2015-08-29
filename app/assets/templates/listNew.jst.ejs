@@ -1,0 +1,12 @@
+<form class="new-list-item">
+<h1><%= list.isNew() ? 'New List' : 'Edit List' %></h1>
+
+<label for='title'>Title</label><br>
+<input type='text'
+       name='list[title]'
+       id='title'
+       value='<%= list.escape('title') %>'><br>
+<input type='hidden' name='list[board_id]' value="">
+
+<button class="submit">Submit</button>
+</form>

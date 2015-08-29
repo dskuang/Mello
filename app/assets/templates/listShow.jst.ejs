@@ -1,0 +1,23 @@
+<div class="list" data-id="<%=list.id%>">
+  <p class="list-title">
+      <%= list.escape("title") %>
+  </p>
+
+  <ul class="cards">
+  </ul>
+
+
+  <form class="new-card-item">
+  <h2>New Card</h2>
+
+  <label for='title'>Title</label><br>
+  <input type='text'
+         name='card[title]'
+         id='title'
+         value=''><br>
+  <input type='hidden' name='card[list_id]' value="<%=list.id%>">
+
+  <button class="submit-card">Submit</button>
+  </form>
+  <button data-id="<%=list.id%>" class="deleteList">Delete</button>
+</div>

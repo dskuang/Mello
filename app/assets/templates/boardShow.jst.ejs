@@ -1,0 +1,26 @@
+<div class="board-stuff">
+  <div class="board-item">
+    <h1 class=""><%= board.escape("title") %></h1>
+  </div>
+
+  <div class="new-list-form">
+    <form class="new-list-item">
+    <h1>New List</h1>
+
+    <label for='title'>Title</label><br>
+    <input type='text'
+           name='list[title]'
+           id='title'
+           value=''><br>
+    <input type='hidden' name='list[board_id]' value="<%=board.id%>">
+
+    <button>Submit</button>
+    </form>
+  </div>
+  <br>
+</div>
+
+
+
+<ul class="lists">
+</ul>

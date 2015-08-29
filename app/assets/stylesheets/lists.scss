@@ -1,0 +1,64 @@
+// Place all the styles related to the lists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.list-class {
+  // float:left;
+  width:200px;
+  border: 1px outset white;
+  position: absolute;
+
+  text-align:center;
+  padding-bottom: 20px;
+  background-color: #ccc;
+  border-radius: 10px;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+.list-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.new-list-item {
+  text-align: center;
+  width: 150px;
+  border: 1px outset white;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+.new-list-item button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.new-list-item h1{
+  font-size: 22px;
+  text-transform: capitalize;
+}
+
+.new-list-form {
+  float:left;
+}
+
+.new-list-form:after {
+  clear:both;
+  display: block;
+  content: "";
+}
+
+.deleteList {
+  margin-top: 20px;
+}
+
+.lists {
+  width: 300px;
+  position: absolute;
+  left: 159px;
+  top: 178px;
+}
