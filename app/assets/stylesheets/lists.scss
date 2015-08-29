@@ -2,20 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .list-class {
-  // float:left;
+  float:left;
   width:200px;
   border: 1px outset white;
-  position: absolute;
-
+  margin-right: 20px;
+  margin-bottom: 20px;
   text-align:center;
   padding-bottom: 20px;
   background-color: #ccc;
   border-radius: 10px;
-  -webkit-transition: all 1s ease-in-out;
-  -moz-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
-  -ms-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
+
 }
 
 .list-title {
@@ -57,8 +53,8 @@
 }
 
 .lists {
-  width: 300px;
-  position: absolute;
-  left: 159px;
-  top: 178px;
+  width: 1600px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 25px;
 }
