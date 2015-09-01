@@ -14,7 +14,11 @@ Trello.Views.BoardShow = Backbone.CompositeView.extend({
 
   onRender: function () {
     this.$(".lists").sortable({
-      stop: function() {
+      start: function (event, ui){
+        ui.item.toggleClass('dragged');
+      },
+      stop: function(event, ui) {
+        ui.item.toggleClass('dragged');
         this.saveOrder();
       }.bind(this)
     });
@@ -64,9 +68,9 @@ Trello.Views.BoardShow = Backbone.CompositeView.extend({
       success: function () {
         that.model.lists().add(that.listModel, { merge: true });
         // that.listModel = new Trello.Models.List();
-        Backbone.history.navigate("#/boards/" + that.model.id, {trigger: true})
-        that.render();
-      }, wait: true
+        // Backbone.history.navigate("#/boards/" + that.model.id, {trigger: true})
+        // that.render();
+      }
     });
   }
 
