@@ -9,7 +9,3 @@ window.Trello = {
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  Trello.initialize();
-});

@@ -8,14 +8,14 @@
 </head>
 <body>
 <% if logged_in? %>
-<%= current_user.username %>
-<%= button_to "Sign Out", session_url, method: :delete %>
+  <%= current_user.username %>
+  <%= button_to "Sign Out", session_url, method: :delete %>
 <% end %>
 
 <% if flash[:errors] %>
-<% flash[:errors].each do |error| %>
-<%= error %>
-<% end %>
+  <% flash[:errors].each do |error| %>
+    <%= error %>
+  <% end %>
 <% end %>
 
 <%= yield %>
