@@ -6,8 +6,6 @@ Trello.Views.ListShow = Backbone.CompositeView.extend({
     this.model.cards().each(this.addCardView.bind(this));
     this.cardModel = new Trello.Models.Card();
     this.boardModel = options.boardModel;
-
-
   },
 
   events: {
@@ -34,7 +32,7 @@ Trello.Views.ListShow = Backbone.CompositeView.extend({
           this.saveNewList(ui);
       }.bind(this),
       remove: function (event, ui) {
-        
+
         var cardId = ui.item.find(".card").data('id');
         var currentCard = this.model.cards().get(cardId);
         this.removeModelSubviewNoRender('.cards',currentCard);
