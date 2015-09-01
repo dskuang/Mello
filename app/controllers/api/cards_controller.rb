@@ -4,6 +4,10 @@ class Api::CardsController < ApplicationController
   #   @card = @card.lists
   #   render "show"
   # end
+  def index
+    @cards = Card.where(list_id: params[:list_id])
+    render :index
+  end
 
   def create
     @card = Card.new(card_params)
@@ -12,6 +16,11 @@ class Api::CardsController < ApplicationController
     else
       render :json => @card.errors.full_messages, :status => 422
     end
+  end
+
+  def show
+    @card = Card.find(params[:id])
+    render json: @card
   end
 
 

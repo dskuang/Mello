@@ -12,18 +12,33 @@ Trello.Views.ListShow = Backbone.CompositeView.extend({
 
   events: {
     "submit .new-card-item": "submit",
-        "click .deleteList": "deleteList"
+    "click .deleteList": "deleteList"
   },
 
   tagName: "li",
-  className: "list-class draggable",
+  className: "list-class",
   template: JST['listShow'],
 
   onRender: function () {
     this.$(".cards").sortable({connectWith: $(".cards"),
-
-      stop: function(event, ui) {
-        this.saveCards(event, ui);
+      start: function (event, ui){
+        ui.item.toggleClass('dragged');
+      },
+      stop: function (event, ui){
+        ui.item.toggleClass('dragged');
+        if (!ui.sender) {
+          this.saveOrder(ui);
+        }
+      }.bind(this),
+      receive: function (event, ui) {
+          this.saveNewList(ui);
+      }.bind(this),
+      remove: function (event, ui) {
+        
+        var cardId = ui.item.find(".card").data('id');
+        var currentCard = this.model.cards().get(cardId);
+        this.removeModelSubviewNoRender('.cards',currentCard);
+        this.model.cards().remove(currentCard, { silent: true });
       }.bind(this)
     });
     Backbone.CompositeView.prototype.onRender.call(this);
@@ -33,34 +48,16 @@ Trello.Views.ListShow = Backbone.CompositeView.extend({
     this.removeModelSubview(".cards", model);
   },
 
-  saveCards: function(event, ui) {
-    var card = ui.item;
-    var cardId = ui.item.find(".card").data("id");
-    var newList = ui.item.parent().parent();
-    var newId = newList.data("id");
-    var cardModel = this.model.cards().get(cardId);
-    cardModel.save({"list_id": newId})
+  saveOrder: function() {
+    var cardItems = this.$(".card");
 
-    this.model.cards().remove(cardModel);
-
-    for(var i = 0; i < this.model.cards().length; i++) {
-      var currCard = this.model.cards().at(i);
-      currCard.set({"ord": i});
-      currCard.save();
+    for(var i = 0; i < cardItems.length; i++) {
+      var cardId = $(cardItems[i]).data("id");
+      var currentCard = this.model.cards().getOrFetch(cardId);
+      currentCard.save({"card" : {"ord": i}});
     }
-
-    var newListModel = this.model.collection.get({id: newId})
-    newListModel.cards().add(cardModel);
-    var newListCards = newList.find(".card");
-
-    for( var j = 0; j < newListCards.length; j++) {
-      var id = $(newListCards[j]).data("id");
-      var mod = newListModel.cards().get(id);
-      mod.set({"ord": j});
-      mod.save();
-    }
-
   },
+
 
   render: function () {
     var content = this.template({list: this.model, card: this.cardModel});
@@ -68,6 +65,25 @@ Trello.Views.ListShow = Backbone.CompositeView.extend({
     this.attachSubviews();
     this.onRender();
     return this;
+  },
+
+  saveNewList: function (ui) {
+    var cardId = ui.item.find(".card").data('id')
+    var currentCard = new Trello.Models.Card({ id: cardId });
+    this.subviews(".cards")._wrapped.splice(
+      ui.item.parent().children().index(ui.item),
+      0,
+      new Trello.Views.CardShow({ model: currentCard })
+    );
+    this.model.cards().add(currentCard, { silent: true });
+
+    var newListId = this.model.id;
+    currentCard.fetch({
+      success: function (model) {
+        model.save({"card": {'list_id': newListId}});
+        this.saveOrder();
+      }.bind(this)
+    });
   },
 
   addCardView: function(card) {
@@ -84,11 +100,16 @@ Trello.Views.ListShow = Backbone.CompositeView.extend({
     this.cardModel.save([], {
       success: function () {
         that.model.cards().add(that.cardModel, { merge: true });
-        Backbone.history.navigate("#/boards/" + that.boardModel.id, {trigger: true})
-        that.render();
-      }, wait: true
+        debugger
+        this.$('.card-title').val("");
+
+        this.cardModel = new Trello.Models.Card();
+        // Backbone.history.navigate("#/boards/" + that.boardModel.id, {trigger: true})
+        // that.render();
+      }.bind(this)
     });
   },
+
   deleteList: function(e) {
     e.preventDefault();
     var id = $(e.currentTarget).data("id");
