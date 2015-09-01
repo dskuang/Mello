@@ -8,16 +8,13 @@
 
 
   <form class="new-card-item">
-  <h2>New Card</h2>
 
-  <label for='title'>Title</label><br>
-  <input class="card-title" type='text'
-         name='card[title]'
-         id='title'
-         value=''><br>
-  <input type='hidden' name='card[list_id]' value="<%=list.id%>">
-
-  <button class="submit-card">Submit</button>
+    <input class="card-title" type='text'
+           name='card[title]'
+           id='title'
+           value='' placeholder="new card"><br>
+    <input type='hidden' name='card[list_id]' value="<%=list.id%>" >
+    <button class="submit-card btn btn-primary">Submit</button>
   </form>
-  <button data-id="<%=list.id%>" class="deleteList">Delete</button>
+  <button data-id="<%=list.id%>" class="deleteList btn btn-primary">Delete</button>
 </div>

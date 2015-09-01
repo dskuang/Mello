@@ -1,9 +1,29 @@
-<h1> Sign Up </h1>
-<form action="<%=users_url%>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-  <label>Username
-    <input type="text" name="user[username]"></label>
-  <label>Password
-    <input type="password" name="user[password]"></label>
-  <input type ="submit" value = "Sign Up">
-</form>
+
+    <div class="session-container"
+             <div class= "credential-div topcorner">
+               <button class="cred-button btn btn-primary"><a href="/session/new">Log in</a></button>
+               <button class="cred-button btn btn-primary"><a href="/users/new">Sign up</a></button>
+             </div>
+
+             <div class="session-form-container">
+              <div class="stumblr">Mello</div>
+               <div class="session-form">
+                 <form action="<%=users_url%>" method="post">
+                     <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+                   <label class="username-input">
+                     <input class="form-control input-lg" style= "" type="text" name="user[username]" placeholder="Username" value=""></label>
+                   <label class= "password-input">
+                     <input class="form-control input-lg" style= "" type="password" name="user[password]" placeHolder= "Password" value=""></label>
+                     <input class="sign-in-button btn btn-primary" type ="submit" value = "Sign Up">
+                     <input class="demo-button btn btn-primary" type ="submit" value = "Demo">
+                   </form>
+                 </div>
+               </div>
+      </div>
+
+
+
+
+<script>
+
+</script>

@@ -14,16 +14,19 @@
  *= require_self
  */
 
- // @import "bootstrap-sprockets";
- // @import "bootstrap";
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
 
 input {
   border-radius: 5px;
 }
 html {
   font-family: helvetica;
-  background-color: rgb(204, 204, 255);
   color: #3399FF
+}
+
+body {
+  background-color: #4169E1;
 }
 
 ul {
@@ -33,16 +36,44 @@ ul {
 
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
 li {
   list-style: none;
 }
 
-button {
-  background-color: #5073DF;
-  padding: 0;
-  border: none;
-  height: 25px;
-  width: 50px;
-  border-radius: 3px;
-  color: white;
+// button {
+//   background-color: #5073DF;
+//   padding: 0;
+//   border: none;
+//   height: 25px;
+//   width: 50px;
+//   border-radius: 3px;
+//   color: white;
+// }
+
+*::-webkit-input-placeholder {
+    color: #ccc;
+}
+*:-moz-placeholder {
+    /* FF 4-18 */
+    color: #ccc;
+}
+*::-moz-placeholder {
+    /* FF 19+ */
+    color: #ccc;
+}
+*:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #ccc;
+}
+
+.card-title {
+  width: 116px;
 }
