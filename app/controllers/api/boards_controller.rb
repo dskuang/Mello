@@ -1,11 +1,10 @@
 class Api::BoardsController < ApplicationController
   def index
-    @boards = Board.all
+    @boards = Board.all.where(user_id: current_user.id)
     render :json => @boards
   end
 
   def show
-
     @board = Board.includes(:lists, :cards).find(params[:id]);
     @lists = @board.lists.order(:ord)
     @cards = @board.cards.order(:ord)
