@@ -1,15 +1,15 @@
 <div style='position:absolute;z-index:0;left:0;top:0;width:100%;height:100%'>
   <img src='/images/bg1.jpeg' style='width:100%;height:100%' alt='[]' />
 </div>
-    <div class="session-container"
+    <div class="session-container">
              <div class= "credential-div topcorner">
                <button class="cred-button btn btn-primary"><a href="/session/new">Log in</a></button>
                <button class="cred-button btn btn-info"><a href="/users/new">Sign up</a></button>
              </div>
 
              <div class="session-form-container">
-              <div class="trello-title">mello</div>
-               <div class="session-form">
+              <div class="trello-title" style="top:-27%">mello</div>
+               <div class="session-form" style="height: 189px; margin-top: 19px;">
                  <form action="<%=users_url%>" method="post">
                      <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
                    <label class="username-input">
