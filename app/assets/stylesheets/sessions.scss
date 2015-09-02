@@ -1,3 +1,71 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.session-form {
+  width: 300px;
+  margin: 0 auto;
+  height: 247px;
+  margin-top: 30px;
+}
+.session-form label{
+	height: 46px;
+}
+
+.sign-in-button{
+	background-color:none;
+	width:300px;
+	height: 50px;
+	margin-top: 20px;
+}
+
+.demo-button {
+  background-color:none;
+	width:300px;
+	height: 50px;
+	// margin-top: 20px;
+}
+
+.credential-div a {
+ text-decoration: none;
+}
+
+
+.topcorner{
+  position:absolute;
+  top: 10px;
+  right: 10px;
+}
+
+
+.session-form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 18%;
+  background-color: rgba(128, 128, 128, 0.72);
+  border-radius: 2px;
+
+}
+
+.trello-title {
+  top: -21%;
+  position: absolute;
+  font-size: 40px;
+  color: white;
+  text-shadow: 1px 1px #000;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.bg1 {
+  background: url("/images/bg1.jpeg");
+  background-size: cover;
+}
+
+.grey-container {
+  width:500px;
+  height: 500px;
+}

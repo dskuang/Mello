@@ -22,7 +22,7 @@ ul.lists:after{
 }
 
 .new_board {
-  width: 155px;
+  width: 259px;
   text-align: center;
   border: 1px outset white;
   margin-top: 20px;
@@ -30,7 +30,7 @@ ul.lists:after{
   margin-left: 30px;
 }
 .new_board button {
-  margin-top: 10px;
+  margin-top: -5px;
   margin-bottom: 10px;
 }
 
@@ -65,6 +65,7 @@ ul.lists:after{
   padding-left: 5px;
   padding-right: 5px;
   margin-top: 50px;
+  background-color: white;
 }
 
 

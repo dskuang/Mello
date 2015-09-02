@@ -1,27 +1,62 @@
+<div style='position:absolute;z-index:0;left:0;top:0;width:100%;height:100%'>
+  <img src='/images/bg1.jpeg' style='width:100%;height:100%' alt='[]' />
+</div>
     <div class="session-container">
              <div class= "credential-div topcorner">
                <button class="cred-button btn btn-primary"><a href="/session/new">Log in</a></button>
-               <button class="cred-button btn btn-primary"><a href="/users/new">Sign up</a></button>
+               <button class="cred-button btn btn-info"><a href="/users/new">Sign up</a></button>
              </div>
 
-             <div class="session-form-container">
-              <div class="stumblr">Mello</div>
-               <div class="session-form">
-                 <form action="<%=session_url%>" method="post">
-                     <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-                   <label class="username-input">
-                     <input class="form-control input-lg" style= "" type="text" name="user[username]" placeholder="Username" value=""></label>
-                   <label class= "password-input">
-                     <input class="form-control input-lg" style= "" type="password" name="user[password]" placeHolder= "Password" value=""></label>
-                     <input class="sign-in-button btn btn-primary" type ="submit" value = "Sign In">
-                   </form>
+               <div class="session-form-container">
+                <div class="trello-title">mello</div>
+                 <div class="session-form">
+                   <form action="<%=session_url%>" method="post">
+                       <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+                     <label class="username-input">
+                       <input class="user-input form-control input-lg" style= "" type="text" name="user[username]" placeholder="Username" value=""></label>
+                     <label class= "password-input">
+                       <input class="pass-input form-control input-lg" style= "" type="password" name="user[password]" placeHolder= "Password" value=""></label>
+                       <input class="sign-in-button btn btn-primary" type ="submit" value = "Sign In">
+                       <input class="demo-button btn btn-info" type ="submit" value = "Demo">
+                     </form>
+                   </div>
                  </div>
-               </div>
+
       </div>
 
 
 
 
+
 <script>
-  // Guest.initialize();
+  $('.demo-button').click(
+    function(e) {
+      e.preventDefault();
+     $user = $('.user-input');
+     $password = $('.pass-input');
+     $submitButton = $('.sign-in-button');
+
+     $user.val('');
+     $password.val('');
+
+     slowtype($user, 'MyUser', function(){
+       slowtype($password, '123456', function() {
+         $submitButton.click();
+       });
+     });
+    }
+  );
+
+  function slowtype($el, word, callback) {
+
+    var typing = setInterval(function(){
+     $el.val( $el.val() + word.slice(0,1) );
+     word = word.substr(1);
+
+     if (!word){
+       clearInterval(typing);
+       callback();
+     }
+    }, 60);
+  }
 </script>

@@ -2,19 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .list-class {
-  float:left;
-  width:200px;
   border: 1px outset white;
   margin-right: 20px;
   margin-bottom: 20px;
-  text-align:center;
+  text-align: center;
   padding-bottom: 20px;
-  background-color: #ccc;
-  border-radius: 10px;
+  background-color: white;
+  border-radius: 4px;
+  display: block;
+  length: 100px;
+  height: 100%;
 
 }
 
 .list-title {
+  width: 14em;
   margin-top: 19px;
   font-size: 20px;
   font-weight: bold;
@@ -23,9 +25,10 @@
 
 .new-list-item {
   text-align: center;
-  width: 150px;
+  width: 259px;
   border: 1px outset white;
   margin-left: 34px;
+  border-radius: 2px
 }
 
 .new-list-item button {
@@ -53,8 +56,15 @@
 }
 
 .lists {
-  width: 1600px;
+  display: flex;
   text-align: center;
   margin: 0 auto;
   margin-top: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
+  overflow-x: scroll;
+}
+
+.lists:last-child {
+  margin-right: 50px;
 }
