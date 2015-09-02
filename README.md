@@ -29,6 +29,7 @@ the user can hover over the selected card, which will reveal the delete button.
 
 
 [here]: melloapp.herokuapp.com
+[start]: ./pictures/start.gif
 [viewlists]: ./pictures/viewlists.gif
 [draglist]: ./pictures/draglist.gif
 [movecards]: ./pictures/movecards.gif
