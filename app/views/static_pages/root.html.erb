@@ -3,7 +3,11 @@
 
 <script>
   $(document).ready(function(){
-    Trello.initialize();
+    $(function(){
+      Trello.CURRENT_USER = {id: "<%= current_user.id %>",
+                            username: "<%= current_user.username %>"}
+      Trello.initialize();
+    });
   });
 
 </script>
