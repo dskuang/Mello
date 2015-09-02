@@ -18,7 +18,7 @@ Trello.Views.ListShow = Backbone.CompositeView.extend({
   template: JST['listShow'],
 
   onRender: function () {
-    this.$(".cards").sortable({connectWith: $(".cards"),
+    this.$(".cards").sortable({connectWith: ".cards",
       start: function (event, ui){
         ui.item.toggleClass('dragged');
       },
