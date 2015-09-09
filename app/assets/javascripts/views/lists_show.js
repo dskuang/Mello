@@ -32,7 +32,6 @@ Trello.Views.ListShow = Backbone.CompositeView.extend({
           this.saveNewList(ui);
       }.bind(this),
       remove: function (event, ui) {
-
         var cardId = ui.item.find(".card").data('id');
         var currentCard = this.model.cards().get(cardId);
         this.removeModelSubviewNoRender('.cards',currentCard);
@@ -48,7 +47,6 @@ Trello.Views.ListShow = Backbone.CompositeView.extend({
 
   saveOrder: function() {
     var cardItems = this.$(".card");
-
     for(var i = 0; i < cardItems.length; i++) {
       var cardId = $(cardItems[i]).data("id");
       var currentCard = this.model.cards().getOrFetch(cardId);
@@ -98,12 +96,8 @@ Trello.Views.ListShow = Backbone.CompositeView.extend({
     this.cardModel.save([], {
       success: function () {
         that.model.cards().add(that.cardModel, { merge: true });
-        debugger
         this.$('.card-title').val("");
-
         this.cardModel = new Trello.Models.Card();
-        // Backbone.history.navigate("#/boards/" + that.boardModel.id, {trigger: true})
-        // that.render();
       }.bind(this)
     });
   },
