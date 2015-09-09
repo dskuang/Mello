@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require serialize_json
 //= require underscore
 //= require backbone
 //= require bootstrap
