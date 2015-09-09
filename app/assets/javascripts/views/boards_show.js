@@ -67,9 +67,8 @@ Trello.Views.BoardShow = Backbone.CompositeView.extend({
     this.listModel.save({}, {
       success: function () {
         that.model.lists().add(that.listModel, { merge: true });
-        // that.listModel = new Trello.Models.List();
-        // Backbone.history.navigate("#/boards/" + that.model.id, {trigger: true})
-        // that.render();
+        $(".new-list-input").val("");
+        this.listModel = new Trello.Models.List();
       }
     });
   }
