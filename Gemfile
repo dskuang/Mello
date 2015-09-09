@@ -20,7 +20,6 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'serialize_json-rails'
 gem 'bcrypt'
 gem 'faker'
 gem 'bootstrap-sass'
@@ -48,4 +47,7 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'rails_12factor', group: :production
+group :production do
+  gem 'rails_12factor'
+  gem 'serialize_json-rails'
+end
