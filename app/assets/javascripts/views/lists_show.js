@@ -57,7 +57,6 @@ Trello.Views.ListShow = Backbone.CompositeView.extend({
   },
 
   rearrangeViews: function(ui) {
-    debugger
     this.model.cards().sort();
     this._subviews = {};
     this.model.cards().each(this.addCardView.bind(this));
