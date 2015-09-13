@@ -1,9 +1,10 @@
 Trello.Views.BoardShow = Backbone.CompositeView.extend({
   initialize: function(){
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync", this.rearrangeViews);
     this.listenTo(this.model.lists(), 'add', this.addListView);
-    this.model.lists().each(this.addListView.bind(this));
+    this.listenTo(this.model.lists(), 'add', this.rearrangeViews);
     this.listenTo(this.model.lists(), 'remove', this.removeListView );
+    this.model.lists().each(this.addListView.bind(this));
   },
 
   events: {
@@ -29,23 +30,29 @@ Trello.Views.BoardShow = Backbone.CompositeView.extend({
     this.removeModelSubview(".lists", model);
   },
 
+  rearrangeViews: function(ui) {
+    this.model.lists().sort();
+    var content = this.template({ board: this.model });
+    this.$el.html(content);
+    this._subviews = {};
+    this.model.lists().each(this.addListView.bind(this));
+    this.attachSubviews();
+    this.onRender();
+  },
+
   saveOrder: function() {
-
     var lists = $(".list");
-
     for(var i = 0 ; i < lists.length; i++) {
       var id = $(lists[i]).data("id");
       this.listModel = this.model.lists().get(id);
       this.listModel.set({ord: i});
-      this.listModel.save({}, {success: function() {
-
-      }.bind(this)
+      this.listModel.save({}, {success: function() {}.bind(this)
       });
     }
   },
 
   render: function(){
-    var toRender = this.template({board: this.model, list: this.listModel});
+    var toRender = this.template({board: this.model});
     this.$el.html(toRender);
     this.attachSubviews();
     this.onRender();

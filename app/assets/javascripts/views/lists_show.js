@@ -1,8 +1,8 @@
 Trello.Views.ListShow = Backbone.CompositeView.extend({
   initialize: function (options) {
-    this.listenTo(this.model.cards(),'remove', this.removeCardView);
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync", this.rearrangeViews);
     this.listenTo(this.model.cards(), 'add', this.addCardView);
+    this.listenTo(this.model.cards(),'remove', this.removeCardView);
     this.model.cards().each(this.addCardView.bind(this));
     this.cardModel = new Trello.Models.Card();
     this.boardModel = options.boardModel;
@@ -50,8 +50,19 @@ Trello.Views.ListShow = Backbone.CompositeView.extend({
     for(var i = 0; i < cardItems.length; i++) {
       var cardId = $(cardItems[i]).data("id");
       var currentCard = this.model.cards().getOrFetch(cardId);
+      currentCard.set({'ord': i})
       currentCard.save({"card" : {"ord": i}});
     }
+    this.rearrangeViews();
+  },
+
+  rearrangeViews: function(ui) {
+    debugger
+    this.model.cards().sort();
+    this._subviews = {};
+    this.model.cards().each(this.addCardView.bind(this));
+    this.attachSubviews();
+    this.onRender();
   },
 
 
@@ -83,7 +94,8 @@ Trello.Views.ListShow = Backbone.CompositeView.extend({
   },
 
   addCardView: function(card) {
-    var subView = new Trello.Views.CardShow({board: this.boardModel, list: this.model.cards(), model: card});
+    var subView = new Trello.Views.CardShow({board: this.boardModel,
+                            list: this.model.cards(), model: card});
     this.addSubview(".cards", subView);
   },
 
@@ -106,7 +118,7 @@ Trello.Views.ListShow = Backbone.CompositeView.extend({
     e.preventDefault();
     var id = $(e.currentTarget).data("id");
     this.boardModel.lists().get(id).destroy();
-    // Backbone.history.navigate("#", {trigger: true});
+    this.saveOrder();
   }
 
 

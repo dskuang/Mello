@@ -3,6 +3,10 @@ Trello.Collections.Lists = Backbone.Collection.extend({
     this.board = options.board;
   },
   url: "api/lists",
-  model: Trello.Models.List
+  model: Trello.Models.List,
+  comparator: function (list) {
+    return list.get('ord')
+  }
+
 
 });
