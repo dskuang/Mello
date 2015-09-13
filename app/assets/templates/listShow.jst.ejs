@@ -2,10 +2,10 @@
   <p class="list-title">
       <%= list.escape("title") %>
   </p>
+  <a data-id="<%=list.id%>" href="#" class="deleteList">X</a>
 
   <ul class="cards">
   </ul>
-
 
   <form class="new-card-item">
 
@@ -16,5 +16,5 @@
     <input type='hidden' name='card[list_id]' value="<%=list.id%>" >
     <button class="submit-card btn btn-primary">Submit</button>
   </form>
-  <button data-id="<%=list.id%>" class="deleteList btn btn-danger">Delete</button>
+
 </div>
