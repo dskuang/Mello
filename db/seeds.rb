@@ -34,49 +34,49 @@ List.create({board_id: 1, title: "Pet", ord: 11})
 List.create({board_id: 1, title: "Alarms", ord: 12})
 
 2.times do |num|
-  Card.create({list_id: 1, title: Faker::Address.city,ord: num})
+  Card.create({list_id: 1, title: Faker::Address.city,ord: num + 1})
 end
 
 15.times do |num|
-  Card.create({list_id: 2, title: Faker::Address.city,ord: num})
+  Card.create({list_id: 2, title: Faker::Address.city,ord: num + 1})
 end
 
 12.times do |num|
-  Card.create({list_id: 3, title: Faker::Address.city,ord: num})
+  Card.create({list_id: 3, title: Faker::Address.city,ord: num + 1})
 end
 
 6.times do |num|
-  Card.create({list_id: 4, title: Faker::Address.city, ord: num})
+  Card.create({list_id: 4, title: Faker::Address.city, ord: num + 1})
 end
 
 8.times do |num|
-  Card.create({list_id: 5, title: Faker::Address.city, ord: num})
+  Card.create({list_id: 5, title: Faker::Address.city, ord: num + 1})
 end
 
 12.times do |num|
-  Card.create({list_id: 6, title: Faker::Address.city, ord: num})
+  Card.create({list_id: 6, title: Faker::Address.city, ord: num + 1})
 end
 
 3.times do |num|
-  Card.create({list_id: 7, title: Faker::Address.city,ord: num})
+  Card.create({list_id: 7, title: Faker::Address.city,ord: num + 1})
 end
 
 5.times do |num|
-  Card.create({list_id: 8, title: Faker::Address.city, ord: num})
+  Card.create({list_id: 8, title: Faker::Address.city, ord: num + 1})
 end
 
 8.times do |num|
-  Card.create({list_id: 9, title: Faker::Address.city, ord: num})
+  Card.create({list_id: 9, title: Faker::Address.city, ord: num + 1})
 end
 
 4.times do |num|
-  Card.create({list_id: 10, title: Faker::Address.city, ord: num})
+  Card.create({list_id: 10, title: Faker::Address.city, ord: num + 1})
 end
 
 12.times do |num|
-  Card.create({list_id: 11, title: Faker::Address.city,ord: num})
+  Card.create({list_id: 11, title: Faker::Address.city,ord: num + 1})
 end
 
 14.times do |num|
-  Card.create({list_id: 12, title: Faker::Address.city,ord: num})
+  Card.create({list_id: 12, title: Faker::Address.city,ord: num + 1})
 end
